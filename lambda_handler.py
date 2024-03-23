@@ -5,8 +5,7 @@ s3=boto3.client('s3')
 def lambda_handler(event,context):
     #storeing bucket name where we have file and unique key from the event 
     bucket=event['Records'][0]['s3']['bucket']['name']
-    key=event['Records'][0]['s3']['object']['key']
-
+    key=event['Records'][0]['s3']['object']['key'
     response= s3.head_object(Bucket=bucket, Key=key)
     file_size= response['ContentLength'] #size in bytes
 
