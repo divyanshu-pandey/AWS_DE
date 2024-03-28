@@ -1,12 +1,12 @@
 version: 0.2
 phases:
-  install:
+ install:
     runtime-versions:
       python: 3.11
     commands:
       - echo "Installing dependencies..."
       - pip install -r requirements.txt -t lib
-  build:
+ build:
     commands:
       - echo "Zipping deployment package..."
       - cd lib
@@ -14,7 +14,7 @@ phases:
       - cd ..
       - zip -g deployment_package.zip DashDoor_order_status.py
       - zip -g deployment_package.zip .env
-  post_build:
+ post_build:
     commands:
       - echo "Uploading to S3..."
       - aws configure set default.region us-east-1
